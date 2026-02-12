@@ -35,14 +35,20 @@ input {
 
 button {
     margin-top: 20px;
-    padding: 10px 20px;
-    background: #ff6b81;
+    padding: 12px 24px;
+    background: #ff6fa5;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 25px;
+    font-size: 15px;
     cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+}
 .container {
     max-width: 700px;
     margin: auto;
@@ -88,4 +94,5 @@ h1, h2 {
     to { opacity: 1; }
 
 }
+
 
