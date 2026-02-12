@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 body {
     margin: 0;
-    font-family: Georgia, serif;
-    background: linear-gradient(to right, #fdfbfb, #ebedee);
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffd6e8, #fff1f7);
+    color: #444;
 }
 
 .center {
@@ -80,4 +81,5 @@ h1, h2 {
 
 @keyframes fadeIn {
     to { opacity: 1; }
+
 }
