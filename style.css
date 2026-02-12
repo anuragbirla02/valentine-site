@@ -92,7 +92,20 @@ h1, h2 {
     opacity: 0;
     animation: fadeIn 2s forwards;
 }
+.hearts::before {
+    content: "❤️ 💕 💖 💗 💘";
+    position: fixed;
+    bottom: -20px;
+    left: 50%;
+    font-size: 22px;
+    animation: floatHearts 10s infinite linear;
+    opacity: 0.4;
+}
 
+@keyframes floatHearts {
+    from { transform: translate(-50%, 0); }
+    to { transform: translate(-50%, -120vh); }
+}
 .ending {
     margin-top: 40px;
     font-weight: bold;
@@ -103,6 +116,7 @@ h1, h2 {
     to { opacity: 1; }
 
 }
+
 
 
 
