@@ -1,12 +1,12 @@
 function checkPassword() {
-    const correctPassword = "hername"; // CHANGE THIS
+    const correctPassword = "Anvi"; // CHANGE THIS
     const entered = document.getElementById("password").value;
 
     if (entered === correctPassword) {
         localStorage.setItem("unlocked", "yes");
         window.location.href = "home.html";
     } else {
-        document.getElementById("error").innerText = "That’s not it ❤️";
+        document.getElementById("error").innerText = "That’s not it my Love ❤️";
     }
 }
 
@@ -33,4 +33,5 @@ function loadImages() {
 
 function playMusic() {
     document.getElementById("bgMusic").play();
+
 }
