@@ -23,15 +23,15 @@ window.onload = function () {
 function loadImages() {
     const container = document.getElementById("photos");
 
+    if (typeof encryptedImages === "undefined" || encryptedImages.length === 0) {
+        console.log("No images to load");
+        return;
+    }
+
     encryptedImages.forEach((img, i) => {
         const image = document.createElement("img");
         image.src = "data:image/jpeg;base64," + img.data;
         image.style.animationDelay = `${i + 1}s`;
         container.appendChild(image);
     });
-}
-
-function playMusic() {
-    document.getElementById("bgMusic").play();
-
 }
