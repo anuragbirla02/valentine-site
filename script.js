@@ -1,48 +1,21 @@
-console.log("JS loaded");
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    // PASSWORD PAGE
-    const btn = document.getElementById("unlockBtn");
-    if (btn) {
-        btn.addEventListener("click", function () {
-            const entered = document.getElementById("password").value.trim();
-            const correctPassword = "Anvi"; // 🔴 CHANGE THIS
+    const button = document.getElementById("unlockBtn");
+    const passwordInput = document.getElementById("password");
+    const errorText = document.getElementById("error");
+
+    const correctPassword = "Anvi"; // 🔴 CHANGE THIS
+
+    if (button) {
+        button.addEventListener("click", function () {
+            const entered = passwordInput.value.trim();
 
             if (entered === correctPassword) {
                 localStorage.setItem("unlocked", "yes");
                 window.location.href = "home.html";
             } else {
-                document.getElementById("error").innerText = "That’s not it ❤️";
+                errorText.innerText = "That’s not it ❤️";
             }
         });
     }
-
-    // HOME PAGE PROTECTION
-    if (window.location.pathname.includes("home.html")) {
-        if (localStorage.getItem("unlocked") !== "yes") {
-            window.location.href = "index.html";
-            return;
-        }
-        loadImages();
-    }
 });
-
-// RANDOM IMAGE PLACEMENT
-function loadImages() {
-    if (!window.encryptedImages || encryptedImages.length === 0) return;
-
-    const container = document.getElementById("photos");
-
-    encryptedImages.forEach(img => {
-        const image = document.createElement("img");
-        image.src = "data:image/jpeg;base64," + img.data;
-
-        image.style.position = "absolute";
-        image.style.top = Math.random() * 70 + "%";
-        image.style.left = Math.random() * 70 + "%";
-        image.style.width = "180px";
-
-        container.appendChild(image);
-    });
-}
