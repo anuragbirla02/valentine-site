@@ -19,7 +19,38 @@ window.onload = function () {
         loadImages();
     }
 };
+function createHearts() {
+    const heartContainer = document.getElementById("floating-hearts");
 
+    for (let i = 0; i < 15; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = ["❤️","💖","💕","💗","💘"][Math.floor(Math.random()*5)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = Math.random() * 100 + "vh";
+        heart.style.animationDuration = 15 + Math.random() * 15 + "s";
+
+        heartContainer.appendChild(heart);
+    }
+}
+
+function floatAnimation() {
+    document.querySelectorAll(".heart").forEach(heart => {
+        heart.animate(
+            [
+                { transform: "translate(0,0)" },
+                { transform: `translate(${Math.random()*200-100}px, ${Math.random()*200-100}px)` }
+            ],
+            {
+                duration: 20000,
+                iterations: Infinity,
+                direction: "alternate",
+                easing: "linear"
+            }
+        );
+    });
+}
 function loadImages() {
     const container = document.getElementById("photos");
 
@@ -35,3 +66,4 @@ function loadImages() {
         container.appendChild(image);
     });
 }
+
