@@ -31,9 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "index.html";
             return;
         }
-
         loadPhotos();
-        createHearts();
     }
 });
 
@@ -145,6 +143,7 @@ window.addEventListener("load", function () {
         loadPhotos();
     }
 });
+
 
 
 
