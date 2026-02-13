@@ -131,11 +131,27 @@ button:hover {
         transform: translate(var(--dx), var(--dy));
     }
 }
+/* ===== FORCE HEART VISIBILITY ===== */
+
+#floating-hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999; /* 👈 VERY IMPORTANT */
+}
+
+.heart {
+    position: absolute;
+    font-size: 22px;
+    opacity: 0.6;
+    user-select: none;
+}
 
 #error {
     margin-top: 12px;
     color: #ff4f8b;
 }
+
 
 
 
