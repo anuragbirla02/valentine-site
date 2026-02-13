@@ -63,40 +63,50 @@ function loadPhotos() {
         "data:image/jpeg;base64," + encryptedImages[encryptedImages.length - 1].data;
 }
 
-/* ===============================
-   FLOATING HEARTS LOGIC
-   =============================== */
+// ===============================
+// FLOATING HEARTS (SAFE VERSION)
+// ===============================
 
-function createFloatingHearts() {
+function startFloatingHearts() {
     const container = document.getElementById("floating-hearts");
-    if (!container) return;
+    if (!container) {
+        console.log("Hearts container not found");
+        return;
+    }
 
     const emojis = ["❤️", "💖", "💕", "💗", "💘"];
-    const heartCount = 22; // calm, not crowded
 
-    for (let i = 0; i < heartCount; i++) {
+    for (let i = 0; i < 20; i++) {
         const heart = document.createElement("div");
         heart.className = "heart";
         heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
-        // random start position
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.top = Math.random() * 100 + "vh";
 
-        // random slow movement
-        heart.style.setProperty("--dx", (Math.random() * 120 - 60) + "px");
-        heart.style.setProperty("--dy", (Math.random() * 120 - 60) + "px");
+        const dx = Math.random() * 200 - 100;
+        const dy = Math.random() * 200 - 100;
 
-        // random speed
-        heart.style.animationDuration = (18 + Math.random() * 20) + "s";
+        heart.animate(
+            [
+                { transform: "translate(0,0)" },
+                { transform: `translate(${dx}px, ${dy}px)` }
+            ],
+            {
+                duration: 20000 + Math.random() * 20000,
+                iterations: Infinity,
+                direction: "alternate",
+                easing: "linear"
+            }
+        );
 
         container.appendChild(heart);
     }
 }
 
-/* run only on home page */
-document.addEventListener("DOMContentLoaded", function () {
+// run only on home page, AFTER everything loads
+window.addEventListener("load", function () {
     if (window.location.pathname.includes("home.html")) {
-        createFloatingHearts();
+        startFloatingHearts();
     }
 });
