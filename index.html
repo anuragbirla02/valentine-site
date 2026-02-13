@@ -11,11 +11,24 @@
     <p>If it’s you, you already know it.</p>
 
     <input type="password" id="password" placeholder="Enter the secret">
-    <button id="unlockBtn">Unlock My Heart</button>
+    <button onclick="checkPassword()">Unlock My Heart</button>
 
     <p id="error"></p>
 </div>
 
-<script src="script.js"></script>
+<script>
+function checkPassword() {
+    const correctPassword = "hername"; // 🔴 CHANGE ONLY THIS
+    const entered = document.getElementById("password").value.trim();
+
+    if (entered === correctPassword) {
+        localStorage.setItem("unlocked", "yes");
+        window.location.href = "home.html";
+    } else {
+        document.getElementById("error").innerText = "That’s not it ❤️";
+    }
+}
+</script>
+
 </body>
 </html>
