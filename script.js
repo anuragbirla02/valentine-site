@@ -63,19 +63,40 @@ function loadPhotos() {
         "data:image/jpeg;base64," + encryptedImages[encryptedImages.length - 1].data;
 }
 
-/* =========================
-   FLOATING HEARTS
-   ========================= */
-function createHearts() {
-    const hearts = document.getElementById("hearts");
-    const emojis = ["❤️","💖","💕","💗","💘"];
+/* ===============================
+   FLOATING HEARTS LOGIC
+   =============================== */
 
-    for (let i = 0; i < 25; i++) {
-        const heart = document.createElement("span");
+function createFloatingHearts() {
+    const container = document.getElementById("floating-hearts");
+    if (!container) return;
+
+    const emojis = ["❤️", "💖", "💕", "💗", "💘"];
+    const heartCount = 22; // calm, not crowded
+
+    for (let i = 0; i < heartCount; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
         heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+        // random start position
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.top = Math.random() * 100 + "vh";
-        heart.style.animationDuration = (15 + Math.random() * 20) + "s";
-        hearts.appendChild(heart);
+
+        // random slow movement
+        heart.style.setProperty("--dx", (Math.random() * 120 - 60) + "px");
+        heart.style.setProperty("--dy", (Math.random() * 120 - 60) + "px");
+
+        // random speed
+        heart.style.animationDuration = (18 + Math.random() * 20) + "s";
+
+        container.appendChild(heart);
     }
 }
+
+/* run only on home page */
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.pathname.includes("home.html")) {
+        createFloatingHearts();
+    }
+});
