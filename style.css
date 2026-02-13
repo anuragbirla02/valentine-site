@@ -46,8 +46,46 @@ button {
 button:hover {
     background: #ff4f8b;
 }
+/* ===============================
+   FLOATING ROMANTIC MESSAGES
+   =============================== */
 
+.romantic-page {
+    position: relative;
+    min-height: 160vh;
+    padding-top: 60px;
+}
+
+/* Common message style */
+.floating-message {
+    position: absolute;
+    max-width: 360px;
+    background: rgba(255, 255, 255, 0.65);
+    padding: 18px 22px;
+    border-radius: 18px;
+    line-height: 1.7;
+    font-size: 15px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    animation: gentleFloat 14s ease-in-out infinite alternate;
+}
+
+/* Individual positions */
+.msg1 { top: 15%; left: 8%; }
+.msg2 { top: 40%; right: 10%; }
+.msg3 { top: 75%; left: 18%; }
+.msg4 { top: 110%; right: 14%; }
+
+/* Floating motion */
+@keyframes gentleFloat {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-25px);
+    }
+}
 #error {
     margin-top: 12px;
     color: #ff4f8b;
 }
+
