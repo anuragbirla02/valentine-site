@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hi Love ❤️</title>
+    <title>For You ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="center">
+<body>
 
-<div class="card">
-    <h2>You unlocked it ❤️</h2>
-    <p>This is just the beginning.</p>
+<!-- Floating hearts -->
+<div id="hearts"></div>
+
+<!-- Background music -->
+<audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="page">
+
+    <!-- Floating messages -->
+    <div class="message m1">You walked into my life quietly 💕</div>
+    <div class="message m2">Somehow you became my home 🏡</div>
+    <div class="message m3">Every ordinary day feels lighter with you ✨</div>
+    <div class="message m4">I choose you, every single time ❤️</div>
+
+    <!-- Random photos -->
+    <div id="photos"></div>
+
+    <!-- Center photo + proposal -->
+    <div class="center-section">
+        <img id="centerPhoto" src="" alt="">
+        <p class="proposal">
+            From silly conversations to silent comfort,<br>
+            from laughter to understanding,<br><br>
+            I don’t know what the future holds,<br>
+            but I know I want to face it with you.<br><br>
+            <strong>Will you be mine? ❤️</strong>
+        </p>
+    </div>
+
 </div>
+
+<script src="images.js"></script>
+<script src="script.js"></script>
 
 <script>
 if (localStorage.getItem("unlocked") !== "yes") {
