@@ -1,25 +1,67 @@
-.heart {
-  animation: float 4s ease-in-out infinite;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffd6e8, #fff1f7);
+    color: #444;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.message-box {
-  background-color: rgba(255, 0, 0, 0.7);
-  border: 2px solid white;
-  border-radius: 15px;
-  padding: 20px;
-  color: white;
-  font-size: 1.2em;
-  text-align: center;
+.card {
+    background: rgba(255,255,255,0.9);
+    padding: 40px;
+    width: 320px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(255,105,180,0.25);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: none;
+    background: #ff6fa5;
+    color: white;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 60px 30px;
+    position: relative;
+}
+
+.message {
+    max-width: 380px;
+    background: rgba(255,255,255,0.6);
+    padding: 18px 22px;
+    border-radius: 18px;
+    margin: 40px 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+#photos {
+    position: relative;
+    min-height: 120vh;
+}
+
+#photos img {
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
