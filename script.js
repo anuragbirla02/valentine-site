@@ -123,7 +123,7 @@ function loadPhotos() {
         photo.className = "random-photo";
         photo.src = "data:image/jpeg;base64," + img.data;
 
-        photo.style.top = Math.random() * 90 + "vh";
+        photo.style.top = Math.random() * 60 + "vh";
         photo.style.left = Math.random() * 80 + "vw";
 
         field.appendChild(photo);
@@ -144,6 +144,7 @@ window.addEventListener("load", function () {
         loadPhotos();
     }
 });
+
 
 
 
