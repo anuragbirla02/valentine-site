@@ -3,29 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Day Celebration</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Valentine Site</title>
 </head>
 <body>
-    <div class="container">
-        <div class="image-container">
-            <img src="path/to/your/image1.jpg" alt="Valentine Image 1">
-            <img src="path/to/your/image2.jpg" alt="Valentine Image 2">
-        </div>
-        <div class="hearts-container">
-            <span class="heart">❤️</span>
-            <span class="heart">❤️</span>
-            <span class="heart">❤️</span>
-        </div>
-        <div class="message-box">
-            <p>Your heartfelt message goes here!</p>
-        </div>
-        <div class="audio-container">
-            <audio controls>
-                <source src="path/to/your/audio.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-    </div>
+    <h1>Welcome to My Valentine Site</h1>
+
+    <audio id="backgroundMusic" controls>
+        <source src="Asim Azhar, Sabri Sisters - Meri Zindagi Hai Tu.m4a" type="audio/m4a">
+        Your browser does not support the audio element.
+    </audio>
+    <button onclick="playPause()">Play/Pause</button>
+
+    <script>
+        const audio = document.getElementById('backgroundMusic');
+        function playPause() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
 </body>
 </html>
