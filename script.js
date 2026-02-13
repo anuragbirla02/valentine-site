@@ -144,6 +144,8 @@ window.addEventListener("load", function () {
     }
 });
 
+console.log("SCRIPT.JS IS RUNNING");
+
 
 
 
