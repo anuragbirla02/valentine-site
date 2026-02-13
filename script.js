@@ -92,7 +92,7 @@ function startFloatingHearts() {
                 { transform: `translate(${dx}px, ${dy}px)` }
             ],
             {
-                duration: 25000 + Math.random() * 20000,
+                duration: 12000 + Math.random() * 8000,
                 iterations: Infinity,
                 direction: "alternate",
                 easing: "linear"
@@ -107,3 +107,4 @@ window.addEventListener("load", function () {
         startFloatingHearts();
     }
 });
+
