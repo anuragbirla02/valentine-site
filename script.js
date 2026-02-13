@@ -107,4 +107,43 @@ window.addEventListener("load", function () {
         startFloatingHearts();
     }
 });
+/* ===============================
+   PHOTO LOGIC
+   =============================== */
+
+function loadPhotos() {
+    if (!window.encryptedImages || encryptedImages.length < 6) return;
+
+    const field = document.getElementById("photo-field");
+    if (!field) return;
+
+    // First 5 photos → random
+    encryptedImages.slice(0, 5).forEach(img => {
+        const photo = document.createElement("img");
+        photo.className = "random-photo";
+        photo.src = "data:image/jpeg;base64," + img.data;
+
+        photo.style.top = Math.random() * 90 + "vh";
+        photo.style.left = Math.random() * 80 + "vw";
+
+        field.appendChild(photo);
+    });
+
+    // Last photo → center
+    const center = document.getElementById("center-photo");
+    if (center) {
+        center.src =
+            "data:image/jpeg;base64," +
+            encryptedImages[encryptedImages.length - 1].data;
+    }
+}
+
+/* RUN ONLY ON HOME PAGE */
+window.addEventListener("load", function () {
+    if (window.location.pathname.includes("home.html")) {
+        loadPhotos();
+    }
+});
+
+
 
