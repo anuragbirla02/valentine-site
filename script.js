@@ -50,20 +50,29 @@ function floatAnimation() {
             }
         );
     });
-}
-function loadImages() {
+}function loadImages() {
     const container = document.getElementById("photos");
 
-    if (typeof encryptedImages === "undefined" || encryptedImages.length === 0) {
-        console.log("No images to load");
-        return;
-    }
+    if (!encryptedImages || encryptedImages.length === 0) return;
 
-    encryptedImages.forEach((img, i) => {
-        const image = document.createElement("img");
-        image.src = "data:image/jpeg;base64," + img.data;
-        image.style.animationDelay = `${i + 1}s`;
-        container.appendChild(image);
+    encryptedImages.forEach(() => {
+        const img = document.createElement("img");
+
+        img.src = "data:image/jpeg;base64," + arguments[0]?.data;
+
+        img.style.position = "absolute";
+        img.style.top = Math.random() * 70 + "%";
+        img.style.left = Math.random() * 70 + "%";
+
+        img.style.width = "180px";
+        img.style.borderRadius = "18px";
+        img.style.boxShadow = "0 12px 30px rgba(0,0,0,0.2)";
+        img.style.opacity = "0";
+        img.style.animation = "fadeInUp 2s forwards";
+
+        container.appendChild(img);
     });
 }
+
+
 
