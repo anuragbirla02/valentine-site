@@ -66,26 +66,44 @@ button:hover {
     line-height: 1.7;
     font-size: 15px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    animation: gentleFloat 14s ease-in-out infinite alternate;
+
+    /* 👇 THIS IS THE FIX */
+    opacity: 0;
+    animation:
+        fadeIn 2.5s ease forwards,
+        gentleFloat 16s ease-in-out infinite alternate;
 }
 
-/* Individual positions */
-.msg1 { top: 15%; left: 8%; }
-.msg2 { top: 40%; right: 10%; }
-.msg3 { top: 75%; left: 18%; }
-.msg4 { top: 110%; right: 14%; }
+/* Staggered appearance */
+.msg1 { top: 15%; left: 8%; animation-delay: 0.5s; }
+.msg2 { top: 40%; right: 10%; animation-delay: 1.2s; }
+.msg3 { top: 75%; left: 18%; animation-delay: 1.9s; }
+.msg4 { top: 110%; right: 14%; animation-delay: 2.6s; }
 
-/* Floating motion */
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Continuous floating */
 @keyframes gentleFloat {
     from {
         transform: translateY(0);
     }
     to {
-        transform: translateY(-25px);
+        transform: translateY(-30px);
     }
 }
 #error {
     margin-top: 12px;
     color: #ff4f8b;
 }
+
 
