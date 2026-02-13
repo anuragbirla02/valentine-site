@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome ❤️</title>
+    <title>Hi Love ❤️</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="background:#fff0f5;font-family:Arial;padding:40px">
+<body class="center">
 
-<h1>Hi ❤️</h1>
-<p>If you see this page, login worked.</p>
+<div class="card">
+    <h2>You unlocked it ❤️</h2>
+    <p>This is just a test page for now.</p>
+</div>
 
 <script>
-if (localStorage.getItem("ok") !== "yes") {
+if (localStorage.getItem("unlocked") !== "yes") {
     window.location.href = "index.html";
 }
 </script>
