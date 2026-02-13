@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Happy Valentine ❤️</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Welcome ❤️</title>
 </head>
-<body>
+<body style="background:#fff0f5;font-family:Arial;padding:40px">
 
-<div class="container">
-    <h1>Hi Love ❤️</h1>
+<h1>Hi ❤️</h1>
+<p>If you see this page, login worked.</p>
 
-    <p class="message">You walked into my life quietly, but changed everything.</p>
-    <p class="message">You make ordinary days feel lighter.</p>
-    <p class="message">This is my small way of choosing you.</p>
+<script>
+if (localStorage.getItem("ok") !== "yes") {
+    window.location.href = "index.html";
+}
+</script>
 
-    <div id="photos"></div>
-</div>
-
-<script src="images.js"></script>
-<script src="script.js"></script>
 </body>
 </html>
