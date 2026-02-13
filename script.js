@@ -64,25 +64,24 @@ function loadPhotos() {
 }
 
 // ===============================
-// FLOATING HEARTS (SAFE VERSION)
+// FLOATING HEARTS — ULTRA SAFE
 // ===============================
 
 function startFloatingHearts() {
     const container = document.getElementById("floating-hearts");
-    if (!container) {
-        console.log("Hearts container not found");
-        return;
-    }
+    if (!container) return;
 
-    const emojis = ["❤️", "💖", "💕", "💗", "💘"];
+    const emojis = ["❤️","💖","💕","💗","💘"];
 
     for (let i = 0; i < 20; i++) {
         const heart = document.createElement("div");
         heart.className = "heart";
-        heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
 
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.top = Math.random() * 100 + "vh";
+
+        container.appendChild(heart);
 
         const dx = Math.random() * 200 - 100;
         const dy = Math.random() * 200 - 100;
@@ -93,18 +92,16 @@ function startFloatingHearts() {
                 { transform: `translate(${dx}px, ${dy}px)` }
             ],
             {
-                duration: 20000 + Math.random() * 20000,
+                duration: 25000 + Math.random() * 20000,
                 iterations: Infinity,
                 direction: "alternate",
                 easing: "linear"
             }
         );
-
-        container.appendChild(heart);
     }
 }
 
-// run only on home page, AFTER everything loads
+// RUN ONLY ON HOME PAGE, AFTER LOAD
 window.addEventListener("load", function () {
     if (window.location.pathname.includes("home.html")) {
         startFloatingHearts();
