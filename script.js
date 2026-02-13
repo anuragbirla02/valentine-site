@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
    PHOTOS
    ========================= */
 function loadPhotos() {
+console.log("Photos loaded:", encryptedImages.length); // 👈 ADD THIS
     if (!window.encryptedImages || encryptedImages.length === 0) return;
 
     const container = document.getElementById("photos");
@@ -144,6 +145,7 @@ window.addEventListener("load", function () {
         loadPhotos();
     }
 });
+
 
 
 
