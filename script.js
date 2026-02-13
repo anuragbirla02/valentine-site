@@ -1,49 +1,88 @@
-// Updated script.js
+function checkPassword() {
+    const correctPassword = "Anvi"; // CHANGE THIS
+    const entered = document.getElementById("password").value;
 
-// Function to load images properly
-function loadImages() {
-    const imageContainer = document.getElementById('image-container');
-    const images = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
-    images.forEach((src) => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = 'Valentine Image';
-        imageContainer.appendChild(img);
-    });
+    if (entered === correctPassword) {
+        localStorage.setItem("unlocked", "yes");
+        window.location.href = "home.html";
+    } else {
+        document.getElementById("error").innerText = "That's not it my Love ❤️";
+    }
 }
 
-// Function to play music
-function playMusic() {
-    const audio = new Audio('valentine-music.mp3');
-    audio.play();
-}
+window.onload = function () {
+    if (window.location.pathname.includes("home.html")) {
+        if (localStorage.getItem("unlocked") !== "yes") {
+            window.location.href = "index.html";
+            return;
+        }
+        loadImages();
+        createHearts();
+        floatAnimation();
+    }
+};
 
-// Initialize hearts on page load
-function initializeHearts() {
-    const heartContainer = document.getElementById('heart-container');
-    for (let i = 0; i < 10; i++) {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
+function createHearts() {
+    const heartContainer = document.getElementById("floating-hearts");
+
+    for (let i = 0; i < 15; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = ["❤️","💖","💕","💗","💘"][Math.floor(Math.random()*5)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = Math.random() * 100 + "vh";
+        heart.style.animationDuration = 15 + Math.random() * 15 + "s";
+
         heartContainer.appendChild(heart);
     }
 }
 
-// Add support for more message boxes
-function addMessageBox(message) {
-    const messageContainer = document.getElementById('message-container');
-    const messageBox = document.createElement('div');
-    messageBox.className = 'message-box';
-    messageBox.textContent = message;
-    messageContainer.appendChild(messageBox);
+function floatAnimation() {
+    document.querySelectorAll(".heart").forEach(heart => {
+        heart.animate(
+            [
+                { transform: "translate(0,0)" },
+                { transform: `translate(${Math.random()*200-100}px, ${Math.random()*200-100}px)` }
+            ],
+            {
+                duration: 20000,
+                iterations: Infinity,
+                direction: "alternate",
+                easing: "linear"
+            }
+        );
+    });
 }
 
-// Event listeners
-window.onload = function() {
-    loadImages();
-    initializeHearts();
-    playMusic();
-};
+function playMusic() {
+    const audio = document.getElementById("bgMusic");
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
+}
 
-// Example usage of addMessageBox
-addMessageBox('Happy Valentine’s Day!');
-addMessageBox('Sending you lots of love!');
+function loadImages() {
+    const container = document.getElementById("photos");
+
+    if (!encryptedImages || encryptedImages.length === 0) return;
+
+    encryptedImages.forEach((img, index) => {
+        const image = document.createElement("img");
+        image.src = "data:image/jpeg;base64," + img.data;
+
+        image.style.position = "absolute";
+        image.style.top = Math.random() * 70 + "%";
+        image.style.left = Math.random() * 70 + "%";
+
+        image.style.width = "180px";
+        image.style.borderRadius = "18px";
+        image.style.boxShadow = "0 12px 30px rgba(0,0,0,0.2)";
+        image.style.opacity = "0";
+        image.style.animation = "fadeInUp 2s forwards";
+
+        container.appendChild(image);
+    });
+}
