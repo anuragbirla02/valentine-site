@@ -53,7 +53,7 @@ button:hover {
 .romantic-page {
     position: relative;
     min-height: 100vh;   /* 👈 important */
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 /* Common message style */
@@ -75,10 +75,10 @@ button:hover {
 }
 
 /* Staggered appearance */
-.msg1 { top: 10%; left: 8%; animation-delay: 0.5s; }
-.msg2 { top: 28%; right: 10%; animation-delay: 1.2s; }
-.msg3 { top: 48%; left: 18%; animation-delay: 1.9s; }
-.msg4 { top: 68%; right: 14%; animation-delay: 2.6s; }
+.msg1 { top: 8%; left: 8%; animation-delay: 0.5s; }
+.msg2 { top: 22%; right: 10%; animation-delay: 1.2s; }
+.msg3 { top: 38%; left: 18%; animation-delay: 1.9s; }
+.msg4 { top: 54%; right: 14%; animation-delay: 2.6s; }
 
 /* Fade-in animation */
 @keyframes fadeIn {
@@ -193,6 +193,7 @@ button:hover {
     margin-top: 12px;
     color: #ff4f8b;
 }
+
 
 
 
