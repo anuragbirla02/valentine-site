@@ -100,14 +100,11 @@ h1, h2 {
     opacity: 0;
     animation: fadeIn 2s forwards;
 }
-.hearts::before {
-    content: "❤️ 💕 💖 💗 💘";
+.heart {
     position: fixed;
-    bottom: -20px;
-    left: 50%;
-    font-size: 22px;
-    animation: floatHearts 10s infinite linear;
-    opacity: 0.4;
+    font-size: 20px;
+    opacity: 0.6;
+    animation: float 20s linear infinite;
 }
 
 @keyframes floatHearts {
@@ -124,6 +121,7 @@ h1, h2 {
     to { opacity: 1; }
 
 }
+
 
 
 
