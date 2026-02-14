@@ -152,6 +152,15 @@ function loadPhotos() {
 window.addEventListener("load", function () {
     loadPhotos();
 });
+// 🎵 Start background music safely
+window.addEventListener("click", function () {
+    const music = document.getElementById("bg-music");
+    if (music && music.paused) {
+        music.volume = 0.4; // soft & romantic
+        music.play().catch(() => {});
+    }
+}, { once: true });
+
 
 
 
