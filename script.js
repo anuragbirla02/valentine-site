@@ -72,7 +72,7 @@ function startFloatingHearts() {
 
     const emojis = ["❤️","💖","💕","💗","💘"];
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 32; i++) {
         const heart = document.createElement("div");
         heart.className = "heart";
         heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
@@ -91,7 +91,7 @@ function startFloatingHearts() {
                 { transform: `translate(${dx}px, ${dy}px)` }
             ],
             {
-                duration: 12000 + Math.random() * 8000,
+                duration: 8000 + Math.random() * 6000,
                 iterations: Infinity,
                 direction: "alternate",
                 easing: "linear"
@@ -151,6 +151,7 @@ function loadPhotos() {
 window.addEventListener("load", function () {
     loadPhotos();
 });
+
 
 
 
