@@ -136,6 +136,7 @@ function loadPhotos() {
         img.src = "data:image/*;base64," + encryptedImages[i].data;
 
         img.style.top = positions[i].top;
+        img.style.setProperty("--start-top", positions[i].top);
         if (positions[i].left) img.style.left = positions[i].left;
         if (positions[i].right) img.style.right = positions[i].right;
 
@@ -151,6 +152,7 @@ function loadPhotos() {
 window.addEventListener("load", function () {
     loadPhotos();
 });
+
 
 
 
