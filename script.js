@@ -111,19 +111,28 @@ window.addEventListener("load", function () {
    =============================== */
 
 function loadPhotos() {
-    if (!window.encryptedImages || encryptedImages.length === 0) return;
+    // ✅ correct existence check
+    if (typeof encryptedImages === "undefined" || encryptedImages.length === 0) {
+        console.log("encryptedImages not available");
+        return;
+    }
+
     console.log("Base64 length:", encryptedImages[0].data.length);
 
-    // TEST: show first image in center
-    const center = document.getElementById("center-photo").src =
-    "data:image/*;base64," +
-    encryptedImages[0].data;
+    const center = document.getElementById("center-photo");
+    if (!center) return;
+
+    // format-agnostic image loader
+    center.src =
+        "data:image/*;base64," +
+        encryptedImages[0].data;
 }
 
 window.addEventListener("load", function () {
     console.log("Calling loadPhotos()");
     loadPhotos();
 });
+
 
 
 
