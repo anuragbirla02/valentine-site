@@ -116,12 +116,9 @@ function loadPhotos() {
     console.log("Photos loaded:", encryptedImages.length);
 
     // TEST: show first image in center
-    const center = document.getElementById("center-photo");
-    if (!center) return;
-
-    center.src =
-        "data:image/jpeg;base64," +
-        encryptedImages[0].data;
+    const center = document.getElementById("center-photo").src =
+    "data:image/*;base64," +
+    encryptedImages[0].data;
 }
 
 window.addEventListener("load", function () {
@@ -129,6 +126,7 @@ window.addEventListener("load", function () {
         loadPhotos();
     }
 });
+
 
 
 
