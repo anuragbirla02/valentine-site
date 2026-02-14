@@ -5,7 +5,12 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #ffd6e8, #fff1f7);
     color: #444;
+    overflow: hidden; /* 👈 VERY IMPORTANT: no blank scroll pages */
 }
+
+/* ===============================
+   LOGIN PAGE (UNCHANGED)
+   =============================== */
 
 .center {
     display: flex;
@@ -46,41 +51,110 @@ button {
 button:hover {
     background: #ff4f8b;
 }
+
+#error {
+    margin-top: 12px;
+    color: #ff4f8b;
+}
+
+/* ===============================
+   HERO SECTION (ONE SCREEN ONLY)
+   =============================== */
+
+#hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ===============================
+   CENTER PROPOSAL (FOCUS POINT)
+   =============================== */
+
+#center-proposal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 5;
+}
+
+#center-photo {
+    width: 230px;
+    border-radius: 24px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+}
+
+.proposal-text {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.8;
+    background: rgba(255,255,255,0.6);
+    padding: 18px 22px;
+    border-radius: 18px;
+}
+
 /* ===============================
    FLOATING ROMANTIC MESSAGES
    =============================== */
 
-.romantic-page {
-    position: relative;
-    min-height: 100vh;   /* 👈 important */
-    padding-top: 20px;
-}
-
-/* Common message style */
 .floating-message {
     position: absolute;
-    max-width: 360px;
+    max-width: 320px;
     background: rgba(255, 255, 255, 0.65);
-    padding: 18px 22px;
+    padding: 14px 18px;
     border-radius: 18px;
-    line-height: 1.7;
-    font-size: 15px;
+    line-height: 1.6;
+    font-size: 14px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-
-    /* 👇 THIS IS THE FIX */
     opacity: 0;
     animation:
-        fadeIn 2.5s ease forwards,
-        gentleFloat 16s ease-in-out infinite alternate;
+        fadeIn 2s ease forwards,
+        gentleFloat 14s ease-in-out infinite alternate;
 }
 
-/* Staggered appearance */
-.msg1 { top: 8%; left: 8%; animation-delay: 0.5s; }
-.msg2 { top: 22%; right: 10%; animation-delay: 1.2s; }
-.msg3 { top: 38%; left: 18%; animation-delay: 1.9s; }
-.msg4 { top: 54%; right: 14%; animation-delay: 2.6s; }
+/* Message positions (first screen only) */
+.msg1 { top: 8%; left: 6%; animation-delay: 0.4s; }
+.msg2 { top: 22%; right: 8%; animation-delay: 0.9s; }
+.msg3 { bottom: 18%; left: 10%; animation-delay: 1.4s; }
+.msg4 { bottom: 10%; right: 10%; animation-delay: 1.9s; }
 
-/* Fade-in animation */
+/* ===============================
+   RANDOM PHOTOS (FIRST SCREEN)
+   =============================== */
+
+#photo-field img {
+    position: absolute;
+    width: 140px;
+    border-radius: 16px;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.25);
+    z-index: 2;
+}
+
+/* ===============================
+   FLOATING HEARTS (TOP LAYER)
+   =============================== */
+
+#floating-hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.heart {
+    position: absolute;
+    font-size: 22px;
+    opacity: 0.6;
+    user-select: none;
+}
+
+/* ===============================
+   ANIMATIONS
+   =============================== */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -92,111 +166,11 @@ button:hover {
     }
 }
 
-/* Continuous floating */
 @keyframes gentleFloat {
     from {
         transform: translateY(0);
     }
     to {
-        transform: translateY(-30px);
+        transform: translateY(-22px);
     }
 }
-/* ===============================
-   FLOATING HEARTS (SPACE-LIKE)
-   =============================== */
-
-#floating-hearts {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* hearts never block clicks */
-    z-index: 0;
-}
-
-.heart {
-    position: absolute;
-    font-size: 22px;
-    opacity: 0.45;
-    animation: drift linear infinite alternate;
-}
-
-/* slow drifting motion */
-@keyframes drift {
-    from {
-        transform: translate(0, 0);
-    }
-    to {
-        transform: translate(var(--dx), var(--dy));
-    }
-}
-/* ===== FORCE HEART VISIBILITY ===== */
-
-#floating-hearts {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9999; /* 👈 VERY IMPORTANT */
-}
-
-.heart {
-    position: absolute;
-    font-size: 22px;
-    opacity: 0.6;
-    user-select: none;
-}
-/* ===============================
-   PHOTOS SECTION
-   =============================== */
-
-#photo-field {
-    position: relative;
-    min-height: 120vh;
-    z-index: 2;
-}
-
-.random-photo {
-    position: absolute;
-    width: 170px;
-    border-radius: 18px;
-    box-shadow: 0 14px 35px rgba(0,0,0,0.25);
-    transition: transform 0.6s ease;
-}
-
-.random-photo:hover {
-    transform: scale(1.05);
-}
-
-/* CENTER PHOTO + PROPOSAL */
-.center-love {
-    position: relative;
-    margin-top: 140vh;
-    text-align: center;
-    z-index: 3;
-}
-
-#center-photo {
-    width: 260px;
-    border-radius: 26px;
-    box-shadow: 0 20px 45px rgba(0,0,0,0.3);
-}
-
-.proposal-text {
-    margin-top: 28px;
-    font-size: 17px;
-    line-height: 1.9;
-    color: #444;
-}
-
-#error {
-    margin-top: 12px;
-    color: #ff4f8b;
-}
-
-
-
-
-
-
-
