@@ -113,28 +113,26 @@ window.addEventListener("load", function () {
 function loadPhotos() {
     if (!window.encryptedImages || encryptedImages.length < 6) return;
 
+    console.log("Photos loaded:", encryptedImages.length);
+
     const field = document.getElementById("photo-field");
     if (!field) return;
 
-    // First 5 photos → random
+    // random photos around center
     encryptedImages.slice(0, 5).forEach(img => {
         const photo = document.createElement("img");
-        photo.className = "random-photo";
         photo.src = "data:image/jpeg;base64," + img.data;
 
-        photo.style.top = Math.random() * 60 + "vh";
-        photo.style.left = Math.random() * 80 + "vw";
+        photo.style.top = Math.random() * 70 + "%";
+        photo.style.left = Math.random() * 80 + "%";
 
         field.appendChild(photo);
     });
 
-    // Last photo → center
-    const center = document.getElementById("center-photo");
-    if (center) {
-        center.src =
-            "data:image/jpeg;base64," +
-            encryptedImages[encryptedImages.length - 1].data;
-    }
+    // center photo
+    document.getElementById("center-photo").src =
+        "data:image/jpeg;base64;" +
+        encryptedImages[encryptedImages.length - 1].data;
 }
 
 /* RUN ONLY ON HOME PAGE */
@@ -145,6 +143,7 @@ window.addEventListener("load", function () {
 });
 
 console.log("SCRIPT.JS IS RUNNING");
+
 
 
 
