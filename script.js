@@ -121,9 +121,8 @@ function loadPhotos() {
 }
 
 window.addEventListener("load", function () {
-    if (window.location.pathname.includes("home.html")) {
-        loadPhotos();
-    }
+    console.log("Calling loadPhotos()");
+    loadPhotos();
 });
 
 
