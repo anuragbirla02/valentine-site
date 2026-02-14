@@ -243,6 +243,41 @@ button:hover {
         0 0 20px rgba(255, 182, 193, 0.6);
     transform: scale(1.02);
 }
+/* ===============================
+   CENTER PHOTO HOVER (ELEGANT)
+   =============================== */
+
+#center-photo {
+    transition:
+        transform 0.6s ease,
+        box-shadow 0.6s ease;
+}
+
+#center-photo:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 28px 60px rgba(255, 105, 180, 0.45),
+        0 0 35px rgba(255, 182, 193, 0.7);
+}
+/* ===============================
+   CENTER MESSAGE HOVER
+   =============================== */
+
+#center-proposal .proposal-text {
+    transition:
+        background 0.4s ease,
+        box-shadow 0.4s ease,
+        transform 0.4s ease;
+}
+
+#center-proposal .proposal-text:hover {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.15),
+        0 0 25px rgba(255, 182, 193, 0.6);
+    transform: translateY(-3px);
+}
+
 
 
 
