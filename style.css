@@ -132,19 +132,26 @@ button:hover {
     width: 135px;
     border-radius: 16px;
     box-shadow: 0 14px 35px rgba(0,0,0,0.25);
-    z-index: 2; /* 👈 PHOTOS */
-    animation: photoFloat 12s ease-in-out infinite alternate;
+    z-index: 2;
+
+    animation: photoFloatY 10s ease-in-out infinite alternate;
 }
-/* Different speed for each photo (natural look) */
-#photo-field img:nth-child(1) { animation-duration: 11s; }
-#photo-field img:nth-child(2) { animation-duration: 13s; }
-#photo-field img:nth-child(3) { animation-duration: 12s; }
-#photo-field img:nth-child(4) { animation-duration: 14s; }
-/* Different speed for each photo (natural look) */
-#photo-field img:nth-child(1) { animation-duration: 11s; }
-#photo-field img:nth-child(2) { animation-duration: 13s; }
-#photo-field img:nth-child(3) { animation-duration: 12s; }
-#photo-field img:nth-child(4) { animation-duration: 14s; }
+
+/* Different speeds = natural movement */
+#photo-field img:nth-child(1) { animation-duration: 9s; }
+#photo-field img:nth-child(2) { animation-duration: 11s; }
+#photo-field img:nth-child(3) { animation-duration: 10s; }
+#photo-field img:nth-child(4) { animation-duration: 12s; }
+
+/* SAFE floating animation (NO transform conflict) */
+@keyframes photoFloatY {
+    from {
+        top: calc(var(--start-top) + 0px);
+    }
+    to {
+        top: calc(var(--start-top) - 18px);
+    }
+}
 
 /* ===============================
    FLOATING HEARTS (TOP LAYER)
@@ -187,6 +194,7 @@ button:hover {
         transform: translateY(-22px);
     }
 }
+
 
 
 
