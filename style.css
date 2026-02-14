@@ -133,7 +133,18 @@ button:hover {
     border-radius: 16px;
     box-shadow: 0 14px 35px rgba(0,0,0,0.25);
     z-index: 2; /* 👈 PHOTOS */
+    animation: photoFloat 12s ease-in-out infinite alternate;
 }
+/* Different speed for each photo (natural look) */
+#photo-field img:nth-child(1) { animation-duration: 11s; }
+#photo-field img:nth-child(2) { animation-duration: 13s; }
+#photo-field img:nth-child(3) { animation-duration: 12s; }
+#photo-field img:nth-child(4) { animation-duration: 14s; }
+/* Different speed for each photo (natural look) */
+#photo-field img:nth-child(1) { animation-duration: 11s; }
+#photo-field img:nth-child(2) { animation-duration: 13s; }
+#photo-field img:nth-child(3) { animation-duration: 12s; }
+#photo-field img:nth-child(4) { animation-duration: 14s; }
 
 /* ===============================
    FLOATING HEARTS (TOP LAYER)
@@ -176,5 +187,6 @@ button:hover {
         transform: translateY(-22px);
     }
 }
+
 
 
