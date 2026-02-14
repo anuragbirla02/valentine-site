@@ -112,8 +112,7 @@ window.addEventListener("load", function () {
 
 function loadPhotos() {
     if (!window.encryptedImages || encryptedImages.length === 0) return;
-
-    console.log("Photos loaded:", encryptedImages.length);
+    console.log("Base64 length:", encryptedImages[0].data.length);
 
     // TEST: show first image in center
     const center = document.getElementById("center-photo").src =
@@ -126,6 +125,7 @@ window.addEventListener("load", function () {
         loadPhotos();
     }
 });
+
 
 
 
