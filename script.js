@@ -111,27 +111,35 @@ window.addEventListener("load", function () {
    =============================== */
 
 function loadPhotos() {
-    // ✅ correct existence check
-    if (typeof encryptedImages === "undefined" || encryptedImages.length === 0) {
-        console.log("encryptedImages not available");
-        return;
-    }
+    if (typeof encryptedImages === "undefined" || encryptedImages.length < 2) return;
 
-    console.log("Base64 length:", encryptedImages[0].data.length);
+    console.log("Total images:", encryptedImages.length);
 
+    const field = document.getElementById("photo-field");
     const center = document.getElementById("center-photo");
-    if (!center) return;
+    if (!field || !center) return;
 
-    // format-agnostic image loader
+    // RANDOM PHOTOS (all except last)
+    encryptedImages.slice(0, -1).forEach(img => {
+        const photo = document.createElement("img");
+        photo.src = "data:image/*;base64," + img.data;
+
+        photo.style.top = Math.random() * 70 + "%";
+        photo.style.left = Math.random() * 80 + "%";
+
+        field.appendChild(photo);
+    });
+
+    // CENTRE PHOTO (last image)
     center.src =
         "data:image/*;base64," +
-        encryptedImages[0].data;
+        encryptedImages[encryptedImages.length - 1].data;
 }
 
 window.addEventListener("load", function () {
-    console.log("Calling loadPhotos()");
     loadPhotos();
 });
+
 
 
 
