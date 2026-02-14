@@ -194,6 +194,31 @@ button:hover {
         transform: translateY(-22px);
     }
 }
+/* ===============================
+   MOBILE FRIENDLY TWEAKS
+   =============================== */
+
+@media (max-width: 768px) {
+
+    #center-photo {
+        width: 190px;
+    }
+
+    .proposal-text {
+        font-size: 14px;
+        padding: 14px 16px;
+    }
+
+    .floating-message {
+        max-width: 240px;
+        font-size: 13px;
+    }
+
+    #photo-field img {
+        width: 110px;
+    }
+}
+
 
 
 
