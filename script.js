@@ -111,34 +111,47 @@ window.addEventListener("load", function () {
    =============================== */
 
 function loadPhotos() {
-    if (typeof encryptedImages === "undefined" || encryptedImages.length < 2) return;
-
-    console.log("Total images:", encryptedImages.length);
+    if (typeof encryptedImages === "undefined" || encryptedImages.length !== 5) {
+        console.log("Expected 5 images");
+        return;
+    }
 
     const field = document.getElementById("photo-field");
     const center = document.getElementById("center-photo");
     if (!field || !center) return;
 
-    // RANDOM PHOTOS (all except last)
-    encryptedImages.slice(0, -1).forEach(img => {
-        const photo = document.createElement("img");
-        photo.src = "data:image/*;base64," + img.data;
+    field.innerHTML = ""; // prevent duplicates
 
-        photo.style.top = Math.random() * 70 + "%";
-        photo.style.left = Math.random() * 80 + "%";
+    // Fixed, aesthetic positions
+    const positions = [
+        { top: "12%", left: "6%" },   // left top
+        { top: "58%", left: "6%" },   // left bottom
+        { top: "12%", right: "6%" },  // right top
+        { top: "58%", right: "6%" }   // right bottom
+    ];
 
-        field.appendChild(photo);
-    });
+    // Place 4 side images
+    for (let i = 0; i < 4; i++) {
+        const img = document.createElement("img");
+        img.src = "data:image/*;base64," + encryptedImages[i].data;
 
-    // CENTRE PHOTO (last image)
+        img.style.top = positions[i].top;
+        if (positions[i].left) img.style.left = positions[i].left;
+        if (positions[i].right) img.style.right = positions[i].right;
+
+        field.appendChild(img);
+    }
+
+    // Centre image (index 4)
     center.src =
         "data:image/*;base64," +
-        encryptedImages[encryptedImages.length - 1].data;
+        encryptedImages[4].data;
 }
 
 window.addEventListener("load", function () {
     loadPhotos();
 });
+
 
 
 
