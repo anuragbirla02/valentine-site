@@ -111,38 +111,25 @@ window.addEventListener("load", function () {
    =============================== */
 
 function loadPhotos() {
-    if (!window.encryptedImages || encryptedImages.length < 6) return;
+    if (!window.encryptedImages || encryptedImages.length === 0) return;
 
     console.log("Photos loaded:", encryptedImages.length);
 
-    const field = document.getElementById("photo-field");
-    if (!field) return;
+    // TEST: show first image in center
+    const center = document.getElementById("center-photo");
+    if (!center) return;
 
-    // random photos around center
-    encryptedImages.slice(0, 5).forEach(img => {
-        const photo = document.createElement("img");
-        photo.src = "data:image/jpeg;base64," + img.data;
-
-        photo.style.top = Math.random() * 70 + "%";
-        photo.style.left = Math.random() * 80 + "%";
-
-        field.appendChild(photo);
-    });
-
-    // center photo
-    document.getElementById("center-photo").src =
-        "data:image/jpeg;base64;" +
-        encryptedImages[encryptedImages.length - 1].data;
+    center.src =
+        "data:image/jpeg;base64," +
+        encryptedImages[0].data;
 }
 
-/* RUN ONLY ON HOME PAGE */
 window.addEventListener("load", function () {
     if (window.location.pathname.includes("home.html")) {
         loadPhotos();
     }
 });
 
-console.log("SCRIPT.JS IS RUNNING");
 
 
 
