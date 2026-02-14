@@ -78,8 +78,9 @@ button:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    z-index: 5;
+    z-index: 6; /* 👈 ABOVE PHOTOS & MESSAGES */
 }
+
 
 #center-photo {
     width: 230px;
@@ -110,6 +111,7 @@ button:hover {
     font-size: 14px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     opacity: 0;
+    z-index: 4; /* 👈 MESSAGES ABOVE PHOTOS */
     animation:
         fadeIn 2s ease forwards,
         gentleFloat 14s ease-in-out infinite alternate;
@@ -127,10 +129,10 @@ button:hover {
 
 #photo-field img {
     position: absolute;
-    width: 140px;
+    width: 135px;
     border-radius: 16px;
     box-shadow: 0 14px 35px rgba(0,0,0,0.25);
-    z-index: 2;
+    z-index: 2; /* 👈 PHOTOS */
 }
 
 /* ===============================
@@ -174,3 +176,4 @@ button:hover {
         transform: translateY(-22px);
     }
 }
+
